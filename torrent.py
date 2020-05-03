@@ -80,14 +80,16 @@ class File:
 class Seeder:
   HTTP_HEADERS = {
     "Accept-Encoding": "gzip",
-    "User-Agent": "Deluge 1.3.15"
+#   "User-Agent": "Deluge 1.3.15"
+    "User-Agent": "Transmission/2.94"
   }
 
   def __init__(self, torrent):
     self.torrent = torrent
-    self.peer_id = "-DE13F0-" + utils.random_id(12)
+#   self.peer_id = "-DE13F0-" + utils.random_id(12)
+    self.peer_id = "-TR2940-" + utils.random_id(12)
     self.download_key = utils.random_id(12)
-    self.port = 12394
+    self.port = 51413    # port 12394
 
   def load_peers(self):
     tracker_url = self.torrent.announce
