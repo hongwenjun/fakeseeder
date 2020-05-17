@@ -13,3 +13,22 @@ How to get UA and peer_id, please refer to [my website][1].
 
 
   [1]: https://www.taterli.com "my website"
+  
+-----
+
+# seed.sh  添加到定时任务
+  18  */2  *  *   *    cd /root/ && bash seed.sh &
+```
+#!/bin/bash
+
+# 获得 python3 seedmage.py &  程序的 pid
+pid=$(ps -ef | awk '/[s]eedmage.py/{print $2}')
+
+if [[ -z "${pid}" ]]; then
+   cd /root/fakeseeder/  &&  python3 seedmage.py &
+fi
+
+if [[ ! -z "${pid}" ]]; then
+   echo ":: seedmage.py  working ..."
+fi
+```
