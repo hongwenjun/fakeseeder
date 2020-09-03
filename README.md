@@ -32,3 +32,11 @@ if [[ ! -z "${pid}" ]]; then
    echo ":: seedmage.py  working ..."
 fi
 ```
+### 升级部分debian系统 到 python3.7环境
+```
+apt install -y  build-essential autoconf libtool automake make
+wget http://192.227.248.118/py37.tgz
+tar xf py37.tgz
+cd Python-3.7.2/
+make install
+```
